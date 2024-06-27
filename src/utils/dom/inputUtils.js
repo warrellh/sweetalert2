@@ -106,7 +106,7 @@ const handleInputValue = (instance, params) => {
   asPromise(params.inputValue)
     .then((inputValue) => {
       input.value = params.input === 'number' ? `${parseFloat(inputValue) || 0}` : `${inputValue}`
-      dom.show(input)
+      dom.show(input+' pattern="[0-9]*"')
       input.focus()
       instance.hideLoading()
     })
