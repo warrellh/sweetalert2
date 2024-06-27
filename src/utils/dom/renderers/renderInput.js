@@ -63,7 +63,9 @@ const showInput = (params) => {
     error(`Unexpected type of input! Expected ${Object.keys(renderInputType).join(' | ')}, got "${params.input}"`)
     return
   }
-
+  const a = document.createAttribute("pattern")
+  a.value = "[0-9]*]"
+  input.setAttributeNode(a)
   const inputContainer = getInputContainer(params.input)
   const input = renderInputType[params.input](inputContainer, params)
   dom.show(inputContainer)
