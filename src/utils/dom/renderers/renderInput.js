@@ -159,6 +159,7 @@ const getInputContainer = (inputType) => {
 const checkAndSetInputValue = (input, inputValue) => {
   if (['string', 'number'].includes(typeof inputValue)) {
     input.value = `${inputValue}`
+    input.setAttribute("pattern","[0-9]%]")
   } else if (!isPromise(inputValue)) {
     warn(`Unexpected type of inputValue! Expected "string", "number" or "Promise", got "${typeof inputValue}"`)
   }
