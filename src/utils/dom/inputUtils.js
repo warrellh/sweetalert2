@@ -106,9 +106,6 @@ const handleInputValue = (instance, params) => {
   asPromise(params.inputValue)
     .then((inputValue) => {
       input.value = params.input === 'number' ? `${parseFloat(inputValue) || 0}` : `${inputValue}`
-      const a = document.createAttribute("pattern")
-      a.value = "[0-9]*]"
-      input.setAttributeNode(a)
       dom.show(input)
       input.focus()
       instance.hideLoading()
