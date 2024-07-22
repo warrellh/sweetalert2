@@ -159,7 +159,6 @@ const getInputContainer = (inputType) => {
 const checkAndSetInputValue = (input, inputValue) => {
   if (['string', 'number'].includes(typeof inputValue)) {
     input.value = `${inputValue}`
-    if(typeof inputValue=='number') input.setAttribute("pattern","[0-9]*")
   } else if (!isPromise(inputValue)) {
     warn(`Unexpected type of inputValue! Expected "string", "number" or "Promise", got "${typeof inputValue}"`)
   }
@@ -189,6 +188,7 @@ renderInputType.text =
       checkAndSetInputValue(input, params.inputValue)
       setInputLabel(input, input, params)
       setInputPlaceholder(input, params)
+      if(params.input=='number') input.setAttribute("pattern","[0-9]*")
       input.type = params.input
       return input
     }
